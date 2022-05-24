@@ -1,7 +1,7 @@
-import { getReservations, deleteRequest, getClowns } from "./dataAccess.js";
+import { getReservations, deleteRequest, getClowns, saveCompletions } from "./dataAccess.js";
 
 const convertReservationsToList = (reservation) => {
-    const clowns =getClowns()
+    const clowns = getClowns()
     return `<li>
             ${reservation.childName}'s party is on ${reservation.reservationDate} for ${reservation.reservationLength}
             <button class="reservation__delete"
@@ -12,9 +12,9 @@ const convertReservationsToList = (reservation) => {
             <option value="">Choose</option>
             ${
                 clowns.map(
-                    clown => {
+                    clown => 
                         `<option value="${reservation.id}--${clown.id}">${clown.name}</option>`
-                    }
+                    
                 ).join("")
             }
             </select>
@@ -43,3 +43,20 @@ mainContainer.addEventListener("click", click => {
         deleteRequest(parseInt(reservationId))
     }
 })
+
+mainContainer.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.id === "clowns") {
+            const [reservationId, clownId] = event.target.value.split("--")
+
+            const completions = {
+                reservationId: reservationId,
+                clownId: clownId,
+                dateCompleted: Date.now()
+            }
+
+            saveCompletions(completions)
+        }
+    }
+)

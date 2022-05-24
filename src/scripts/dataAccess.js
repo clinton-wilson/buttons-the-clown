@@ -59,3 +59,28 @@ export const fetchClowns = () => {
 export const getClowns = () => {
     return applicationState.clowns.map(clown => ({...clown}))
 }
+
+export const saveCompletions = (partiesCompleted) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(partiesCompleted)
+    }
+    return fetch(`${API}/partyCompletions`, fetchOptions)
+    .then(response => response.json())
+    .then(() => {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    })
+}
+
+export const fetchCompletions = () => {
+    return fetch(`${API}/partyCompletions`)
+    .then(response => response.json())
+    .then(
+        (data) => {
+            applicationState.partyCompletions = data
+        }
+    )
+}

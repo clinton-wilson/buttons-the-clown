@@ -11,15 +11,6 @@
   ],
   "partyRequests": [
     {
-      "parentName": "Bob",
-      "childName": "Louise",
-      "attendees": "45",
-      "address": "1200 bob's burgers",
-      "reservationDate": "2022-05-29",
-      "reservationLength": "5 hours",
-      "id": 1
-    },
-    {
       "parentName": "Clinton",
       "childName": "Wendy",
       "attendees": "5",
@@ -29,5 +20,12 @@
       "id": 2
     }
   ],
-  "partyCompletions": []
+  "partyCompletions": [
+    {
+      "reservationId": "1",
+      "clownId": "1",
+      "dateCompleted": 1653422144023,
+      "id": 1
+    }
+  ]
 }

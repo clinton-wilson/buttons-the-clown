@@ -1,14 +1,16 @@
 .button {
     margin: 1rem 0 2rem 2rem;
     padding: 0.5rem;
-    background-color: rgb(227, 72, 72);
+    background-color: #ee964b;
     color: lightgoldenrodyellow;
     font-size: 1rem;
+    
 }
 
 .field {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     font-size: 1.5em;
     padding: .5em;
     width: 40%;
@@ -24,7 +26,14 @@ input {
     display: flex;
     flex-direction: column;
     margin: .5em;
-    background-color: rgb(227, 72, 72);
+    background-color: #ee964b;
     color: lightgoldenrodyellow;
     font-size: 1rem;
 }
+
+img {
+    width: 15em;
+    height: auto%;
+    border-radius: 75%;
+}
+
